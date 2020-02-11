@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'), Schema = mongoose.Schema;
+const Category = require('./Category');
 
-const schema = mongoose.Schema({
+const bookmarkSchema = mongoose.Schema({
     tabName: {
         type: String,
         require: true
@@ -8,7 +9,11 @@ const schema = mongoose.Schema({
     url: {
         type: String,
         require: true
+    },
+    category: { 
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
     }
 });
 
-module.exports = mongoose.model('Bookmark', schema);
+module.exports = mongoose.model('Bookmark', bookmarkSchema);
