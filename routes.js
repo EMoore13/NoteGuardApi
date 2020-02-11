@@ -43,7 +43,7 @@ router.patch('/:id', async (req, res) => {
         }
 
         if (req.body.category._id) {
-            bookmark.category = req.body.category._id
+            bookmark.category = req.body.category._id;
         }
 
         await bookmark.save();
