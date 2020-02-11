@@ -44,7 +44,6 @@ router.patch('/:id', async (req, res) => {
 
         if (req.body.category._id) {
             const _category = await Category.findOne({ _id: req.body.category._id });
-            console.log(_category.category_name);
             if (_category) {
                 bookmark.category = req.body.category._id;
                 _category.bookmarks.push({ _id: bookmark._id });
